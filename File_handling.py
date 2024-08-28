@@ -68,5 +68,53 @@ else:
   print("doesnot exists")
 
 **************************************************
+try:
+    with open('input.txt', 'r') as infile:
+        content = infile.read()
+
+    with open('output.txt', 'w') as outfile:
+        outfile.write(content)
+except FileNotFoundError:
+    print("One of the files does not exist.")
+except IOError as e:
+    print(f"An I/O error occurred: {e}")
+*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-*-***-****--**-********/**/*/*/-*-
+import csv
+
+# Reading from a CSV file
+with open('data.csv', 'r') as file:
+    csv_reader = csv.reader(file)
+    for row in csv_reader:
+        print(row)
+*-*-***-*-**-**-*-*****/*-*/-***
+import csv
+
+# Writing to a CSV file
+with open('data.csv', 'w', newline='') as file:
+    csv_writer = csv.writer(file)
+    csv_writer.writerow(['Name', 'Age', 'City'])
+    csv_writer.writerow(['Alice', '25', 'New York'])
+    csv_writer.writerow(['Bob', '30', 'Los Angeles'])
+********************************************************
+  JSON
+import json
+
+# Reading from a JSON file
+with open('data.json', 'r') as file:
+    data = json.load(file)
+    print(data)
+
+import json
+
+# Writing to a JSON file
+data = {
+    'name': 'Alice',
+    'age': 25,
+    'city': 'New York'
+}
+
+with open('data.json', 'w') as file:
+    json.dump(data, file)
+
 
 
